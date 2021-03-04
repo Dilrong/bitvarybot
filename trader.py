@@ -33,12 +33,12 @@ def candidate_coins():
 
 # 상승장 확인
 def is_growing_market(market):
-    prices = upbit.get_ohlcv(market, '', GROWING_PERIOD)
+    prices = upbit.get_candles_daily(market, '', GROWING_PERIOD)
     return prices[0]['trade_price'] > prices[-1]['trade_price']
 
 # k 값 계산
 def get_market_noise(market):
-    prices = upbit.get_ohlcv(market, '', 20)[1:]
+    prices = upbit.get_candles_daily(market, '', 20)[1:]
     price_noise = list(map(lambda p: 1 - abs(p['trade_price'] - p['opening_price']) / (p['high_price'] - p['low_price']), prices))
     return sum(price_noise) / len(price_noise)
 
@@ -49,7 +49,7 @@ def get_betting_ratio(market):
     e.g., 3일의 이동 평균선 = (1일전 종가 + 2일전 종가 + 3일전 종가)/3
           => 만약 현재 가격이 3일의 이동 평균 가격 보다 높으면 score 1/18 더한다
     '''
-    prices = upbit.get_ohlcv(market, '', 21)
+    prices = upbit.get_candles_daily(market, '', 21)
     score = 0
     if len(prices) < 21:
         return 0
@@ -149,7 +149,7 @@ if __name__ == '__main__':
             if coin_investable <= 0:
                 break
 
-            candles = upbit.get_ohlcv(market, '', 2)  # Today, Yesterday
+            candles = upbit.get_candles_daily(market, '', 2)  # Today, Yesterday
 
             _range = candles[1]['high_price'] - candles[1]['low_price']
 
