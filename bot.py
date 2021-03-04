@@ -3,7 +3,7 @@ import pprint
 import time
 import datetime
 
-# Const
+# CONST
 TIKER="KRW-BTC"
 SPREAD_GAP = 1
 k = 0.5
