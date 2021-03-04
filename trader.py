@@ -24,14 +24,6 @@ input_ticker="KRW-ETH"
 # Load Upbit API
 upbit = pyupbit.Upbit(access, secret)
 
-def calculate_target(ticker):
-    df=pyupbit.get_ohlcv(ticker, "day")
-    yesterday = df.iloc[-2]
-    today = df.iloc[-1]
-    yesterday_range = yesterday['high'] - yesterday['low']
-    target = today['open'] + yesterday_range * k
-    return target
-
 # 코인 선택
 def candidate_coins():
     if SELECTED_COINS:
