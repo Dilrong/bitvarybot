@@ -1,7 +1,7 @@
 # 개요
 
 ## 배경
-[chaeso/upbitbot](https://github.com/chaeso/upbitbot)
+[파이썬을 이용한 비트코인 자동매매](https://wikidocs.net/21889)
 위 봇을 개인적으로 사용하기 위해서 개량
 
 # 내용
@@ -14,7 +14,7 @@ Python 3.9
 user access key
 user secret key
 ```
-3. `python3 trader.py`
+3. `python3 bot.py`
 
 ## 오류해결
 ### bs4 오류
