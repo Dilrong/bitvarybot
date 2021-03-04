@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import pyupbit
+from upbitlib.upbit import Upbit
 import pprint
 import time
 import datetime
@@ -22,7 +22,7 @@ SPREAD_GAP = 0.002
 input_ticker="KRW-ETH"
 
 # Load Upbit API
-upbit = pyupbit.Upbit(access, secret)
+upbit = Upbit(access, secret)
 
 # 코인 선택
 def candidate_coins():
