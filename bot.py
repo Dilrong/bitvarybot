@@ -5,7 +5,7 @@ import datetime
 
 # Const
 TIKER="KRW-BTC"
-SPREAD_GAP = 0.2
+SPREAD_GAP = 1
 k = 0.5
 
 # Load API Key
@@ -73,7 +73,7 @@ while True:
         current_price = pyupbit.get_current_price()
         if (current_price > target_price) and (current_price > ma5):
             buy_crypto_currency()
-        print("Running Bot")
+        print("Time: {now} Target Price: {target_price} Current_Price{current_price}")
     except:
         print("Error")
     time.sleep(SPREAD_GAP)
