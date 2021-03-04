@@ -1,0 +1,7 @@
+requests
+future
+simplejson
+telepot
+tendo
+pytz
+bs4
